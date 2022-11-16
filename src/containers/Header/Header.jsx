@@ -1,8 +1,12 @@
 import React from "react";
-import "./Header.css";
+import HeaderArea from "../../components/HeaderArea/HeaderArea";
 
 const Header = () => {
-  return <div className="headerClass">This is the header</div>;
+  return (
+    <>
+      <HeaderArea></HeaderArea>
+    </>
+  );
 };
 
 export default Header;

@@ -1,8 +1,12 @@
 import React from "react";
-import "./Body.css";
+import BodyArea from "../../components/BodyArea/BodyArea";
 
 const Body = () => {
-  return <div className="bodyClass">This is the Body</div>;
+  return (
+    <>
+      <BodyArea></BodyArea>
+    </>
+  );
 };
 
 export default Body;
