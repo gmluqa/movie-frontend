@@ -1,16 +1,20 @@
 import React from "react";
-import "./HeaderArea.css";
+import "./Header.css";
 
-const HeaderArea = () => {
+const Header = () => {
   return (
-    <div className="headerArea">
+    <div className="classHeader">
       <img
         className="headerLogo"
         src="https://bendblockbuster.com/wp-content/uploads/2019/05/bb-ticket.png"
         alt=""
       />
+      <div>
+        <div>login</div>
+        <div>register</div>
+      </div>
     </div>
   );
 };
 
-export default HeaderArea;
+export default Header;
