@@ -14,4 +14,4 @@ Workflow Example:
 
 When starting to work on a feature/bug: `git checkout -b newBranchName` (Work on new branch until completion...)
 
-Once work on the feature/bug is finished, we checkout the main branch and merge the feature into main: `git checkout main && git merge newBranchName`
+Once work on the feature/bug is finished, we show our work on discord to the team, have a second pair of eyes to look over the implementation, and if the change is approved, checkout the main branch and merge the feature into main: `git checkout main && git merge newBranchName`
