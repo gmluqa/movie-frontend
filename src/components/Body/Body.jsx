@@ -2,6 +2,7 @@ import React from "react";
 import "./Body.css";
 import { Route, Routes } from "react-router-dom";
 import Home from "../Home/Home";
+import NotFound from "../NotFound/NotFound";
 
 const Body = () => {
   return (
@@ -12,7 +13,7 @@ const Body = () => {
         <Route path="/login" element={<div>login!!</div>} />
         <Route path="/user-area" element={<div>user-area!!</div>} />
         <Route path="/admin-area" element={<div>admin area!!</div>} />
-        <Route path="*" element={<div>404 page not found</div>} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
