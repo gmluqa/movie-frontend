@@ -1,6 +1,6 @@
 import React from "react";
 import "./Header.css";
-
+import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <div className="classHeader">
@@ -10,7 +10,9 @@ const Header = () => {
         alt=""
       />
       <div>
-        <div>login</div>
+      <Link to="./login">
+        <button>login</button>
+        </Link>
         <div>register</div>
       </div>
     </div>
