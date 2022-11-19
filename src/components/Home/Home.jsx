@@ -39,10 +39,10 @@ const Home = () => {
         <div>This is more content</div>
       </div>
       <div className="contentParent">
-        <div>
-          This is more content, TODO: fix horizontal scroll that appears when
-          content expands the parent element
-        </div>
+        <div>This is more content</div>
+      </div>
+      <div className="contentParent">
+        <div>This is more content</div>
       </div>
     </>
   );
