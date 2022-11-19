@@ -1,5 +1,5 @@
 .classBody {
-  height: 60vh;
+  min-height: 60vh;
   width: 100vw;
   background-color: yellow;
 }
