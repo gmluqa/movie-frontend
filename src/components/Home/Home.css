@@ -1,0 +1,6 @@
+.contentParent {
+  width: 100vw;
+  justify-content: center;
+  /* align-items: center; */
+  display: flex;
+}
