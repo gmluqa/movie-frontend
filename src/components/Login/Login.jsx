@@ -1,10 +1,24 @@
 import React from "react";
+// import React, {useState,useEffect} from "react"; 
+// import { useNavigate } from "react-router-dom";
+// import {useSelector, useDispatch} from "react-redux";
+// import {userData, login} from "../userSlice";
 import "./Login.css";
 
 import { Button, Checkbox, Form, Input } from "antd";
 import { Link } from "react-router-dom";
+import { formatCountdown } from "antd/es/statistic/utils";
 
 const Login = () => {
+
+  // const navigate = useNavigate();
+  // const dispatch = useDispatch();
+  // const userlogin = useSelector(userData); 
+
+  // const submitForm = () => {
+    
+  // }
+
   const onFinish = values => {
     console.log("Success:", values);
   };
@@ -39,9 +53,24 @@ const Login = () => {
             },
           ]}
         >
-          <Input />
+          <Input type ="text" />
         </Form.Item>
-
+        <Form.Item
+        name="email"
+        label="E-mail"
+        rules={[
+          {
+            type: 'email',
+            message: 'The input is not valid E-mail!',
+          },
+          {
+            required: true,
+            message: 'Please input your E-mail!',
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>
         <Form.Item
           label="Password"
           name="password"

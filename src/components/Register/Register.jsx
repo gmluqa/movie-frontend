@@ -3,15 +3,10 @@ import "./Register.css";
 // import { Button, Checkbox, Form, Input } from "antd";
 import React, { useState } from 'react';
 import {
-  AutoComplete,
   Button,
-  Cascader,
   Checkbox,
-  Col,
   Form,
   Input,
-  InputNumber,
-  Row,
   Select,
 } from 'antd';
 const { Option } = Select;
