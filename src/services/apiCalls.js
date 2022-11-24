@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-var root = 'http://localhost:3000'
+let root = 'http://localhost:3000'
 
 export const loginUser = async () => {
     

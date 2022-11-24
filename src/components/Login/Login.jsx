@@ -1,23 +1,66 @@
-import React from "react";
-// import React, {useState,useEffect} from "react"; 
-// import { useNavigate } from "react-router-dom";
-// import {useSelector, useDispatch} from "react-redux";
-// import {userData, login} from "../userSlice";
+import React, {useState,useEffect} from "react"; 
+import { useNavigate } from "react-router-dom";
+import {useSelector, useDispatch} from "react-redux";
+import {userData, login} from "../userSlice";
+import { loginUser } from "../../services/apiCalls";
 import "./Login.css";
 
 import { Button, Checkbox, Form, Input } from "antd";
-import { Link } from "react-router-dom";
-import { formatCountdown } from "antd/es/statistic/utils";
+// import { Link } from "react-router-dom";
+// import { formatCountdown } from "antd/es/statistic/utils";
+// import { set } from "immer/dist/internal";
 
 const Login = () => {
 
-  // const navigate = useNavigate();
-  // const dispatch = useDispatch();
-  // const userlogin = useSelector(userData); 
+// HOOKS  
+  const [criteria,setCriteria] = useState('');
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const userlogin = useSelector(userData);
+  
+  const [user, setUser] = useState({
+    email: '',
+    password: ''
+});
 
-  // const submitForm = () => {
-    
+// HANDLERS 
+
+  // const criteriaHandler = (e) => {
+  //   set.Criteria (e.target.value);
   // }
+ 
+  const inputHandler = (e) => {
+    setUser((prevState)=>({
+      ...prevState,
+      [e.target.name]: e.target.value
+    }))
+  };
+
+  const logout = () => {
+    dispatch(userout({ userlog: {} }))
+    return navigate("/login");
+};
+
+  useEffect(() => {
+  if (userlogin?.userlog?.token !== undefined) {
+      navigate("/user-area");
+  };
+}, []);
+
+const logMe = () => {
+         
+  loginUser(user)
+      .then(data => {
+          console.log(data);
+      })
+
+  dispatch(login({token: token}));
+
+  setTimeout(()=>{
+      navigate("/user-area");
+  },1000);
+
+};
 
   const onFinish = values => {
     console.log("Success:", values);
@@ -29,7 +72,6 @@ const Login = () => {
   return (
     <div className="loginDesign">
       <Form
-        name="basic"
         labelCol={{
           span: 8,
         }}
@@ -46,6 +88,7 @@ const Login = () => {
         <Form.Item
           label="Username"
           name="username"
+          onChange={(e) => inputHandler(e)}
           rules={[
             {
               required: true,
@@ -58,6 +101,7 @@ const Login = () => {
         <Form.Item
         name="email"
         label="E-mail"
+        onChange={(e) => inputHandler(e)}
         rules={[
           {
             type: 'email',
@@ -74,6 +118,7 @@ const Login = () => {
         <Form.Item
           label="Password"
           name="password"
+          onChange={(e) => inputHandler(e)}
           rules={[
             {
               required: true,
@@ -101,7 +146,7 @@ const Login = () => {
             span: 16,
           }}
         >
-          <Button type="primary" htmlType="submit">
+          <Button type="primary" htmlType="submit" onClick ={()=> logMe()}>
             Submit
           </Button>
         </Form.Item>
