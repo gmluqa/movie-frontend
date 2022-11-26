@@ -1,0 +1,20 @@
+.promoMessage {
+  text-align: center;
+  padding-top: 5vh;
+}
+
+.plansWrapper {
+  display: flex;
+  justify-content: space-around;
+  height: 20vh;
+  padding-top: 10vh;
+}
+
+.plan {
+  display: grid;
+  border: 2px solid red;
+}
+
+.plan:hover {
+  background-color: rgb(23, 214, 228);
+}

@@ -1,15 +1,10 @@
-
 import "./Register.css";
-// import { Button, Checkbox, Form, Input } from "antd";
-import React, { useState } from 'react';
-import {
-  Button,
-  Checkbox,
-  Form,
-  Input,
-  Select,
-} from 'antd';
+import React, { useState } from "react";
+
+import { Button, Checkbox, Form, Input, Select } from "antd";
 const { Option } = Select;
+
+import { registerUser } from "../../services/register.service";
 
 const formItemLayout = {
   labelCol: {
@@ -42,12 +37,19 @@ const tailFormItemLayout = {
   },
 };
 
-
 const Register = () => {
+  // useEffect(() => {
+  //   console.log("Soy register", registerFromRdx);
+  // });
+
   const [form] = Form.useForm();
-  const onFinish = (values) => {
-    console.log('Received values of form: ', values);
+  const onFinish = async values => {
+    let res = await registerUser(values);
+    console.log(res);
+    setRegisterMessage(res);
+    // register service called(values)
   };
+
   const prefixSelector = (
     <Form.Item name="prefix" noStyle>
       <Select
@@ -73,22 +75,29 @@ const Register = () => {
     </Form.Item>
   );
 
+  // Here are the hooks
+  const [registerMessage, setRegisterMessage] = useState("");
   const [autoCompleteResult, setAutoCompleteResult] = useState([]);
 
-  const onWebsiteChange = (value) => {
+  // Here is the input handler
+  const inputHandler = e => {
+    setCriteria(e.target.value);
+  };
+
+  const onWebsiteChange = value => {
     if (!value) {
       setAutoCompleteResult([]);
     } else {
-      setAutoCompleteResult(['.com', '.org', '.net'].map((domain) => `${value}${domain}`));
+      setAutoCompleteResult(
+        [".com", ".org", ".net"].map(domain => `${value}${domain}`)
+      );
     }
   };
 
-  const websiteOptions = autoCompleteResult.map((website) => ({
+  const websiteOptions = autoCompleteResult.map(website => ({
     label: website,
     value: website,
   }));
-
-
 
   return (
     <Form
@@ -97,8 +106,8 @@ const Register = () => {
       name="register"
       onFinish={onFinish}
       initialValues={{
-        residence: ['zhejiang', 'hangzhou', 'xihu'],
-        prefix: '86',
+        residence: ["zhejiang", "hangzhou", "xihu"],
+        prefix: "86",
       }}
       scrollToFirstError
     >
@@ -107,12 +116,12 @@ const Register = () => {
         label="E-mail"
         rules={[
           {
-            type: 'email',
-            message: 'The input is not valid E-mail!',
+            type: "email",
+            message: "The input is not valid E-mail!",
           },
           {
             required: true,
-            message: 'Please input your E-mail!',
+            message: "Please input your E-mail!",
           },
         ]}
       >
@@ -125,7 +134,7 @@ const Register = () => {
         rules={[
           {
             required: true,
-            message: 'Please input your password!',
+            message: "Please input your password!",
           },
         ]}
         hasFeedback
@@ -136,19 +145,21 @@ const Register = () => {
       <Form.Item
         name="confirm"
         label="Confirm Password"
-        dependencies={['password']}
+        dependencies={["password"]}
         hasFeedback
         rules={[
           {
             required: true,
-            message: 'Please confirm your password!',
+            message: "Please confirm your password!",
           },
           ({ getFieldValue }) => ({
             validator(_, value) {
-              if (!value || getFieldValue('password') === value) {
+              if (!value || getFieldValue("password") === value) {
                 return Promise.resolve();
               }
-              return Promise.reject(new Error('The two passwords that you entered do not match!'));
+              return Promise.reject(
+                new Error("The two passwords that you entered do not match!")
+              );
             },
           }),
         ]}
@@ -163,7 +174,7 @@ const Register = () => {
         rules={[
           {
             required: true,
-            message: 'Please input your nickname!',
+            message: "Please input your nickname!",
             whitespace: true,
           },
         ]}
@@ -220,7 +231,7 @@ const Register = () => {
           }}
         />
       </Form.Item> */}
-{/* 
+      {/* 
       <Form.Item
         name="website"
         label="Website"
@@ -294,7 +305,9 @@ const Register = () => {
         rules={[
           {
             validator: (_, value) =>
-              value ? Promise.resolve() : Promise.reject(new Error('Should accept agreement')),
+              value
+                ? Promise.resolve()
+                : Promise.reject(new Error("Should accept agreement")),
           },
         ]}
         {...tailFormItemLayout}
@@ -309,12 +322,8 @@ const Register = () => {
           Register
         </Button>
       </Form.Item>
+      <div>{registerMessage}</div>
     </Form>
   );
-
-
-  
 };
 export default Register;
-
-
