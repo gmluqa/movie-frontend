@@ -54,7 +54,7 @@ const logMe = () => {
           console.log(data);
       })
 
-  dispatch(login({token: token}));
+  dispatch(login({token: password}));
 
   setTimeout(()=>{
       navigate("/user-area");
