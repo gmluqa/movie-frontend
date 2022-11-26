@@ -4,21 +4,19 @@ const API_URL = 'http://localhost:3000'
 
 let returnedMessage = ""
 
-export let registerUser = async (values) => {
+export let loginUser = async (values) => {
 
     try {
-        await axios.post(`${API_URL}/user/register`, {
-            "FirstName": "",
-            "LastName": "",
+        await axios.post(`${API_URL}/user/login`, {
             "Email": values.email,
             "Password": values.password
         }).then(response => {
-            returnedMessage = response.data.message
+            returnedMessage = response.data
         })
         return returnedMessage
     }
     catch (error) {
-        returnedMessage = "This email has been registered already."
+        returnedMessage = "Invalid E-mail or password."
         return returnedMessage
     }
 };
