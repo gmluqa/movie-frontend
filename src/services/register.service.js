@@ -8,8 +8,8 @@ export let registerUser = async (values) => {
 
     try {
         await axios.post(`${API_URL}/user/register`, {
-            "FirstName": values.nickname,
-            "LastName": values.nickname,
+            "FirstName": "",
+            "LastName": "",
             "Email": values.email,
             "Password": values.password
         }).then(response => {
