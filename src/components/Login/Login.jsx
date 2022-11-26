@@ -1,30 +1,27 @@
 import React from "react";
-// import React, {useState,useEffect} from "react"; 
-// import { useNavigate } from "react-router-dom";
-// import {useSelector, useDispatch} from "react-redux";
-// import {userData, login} from "../userSlice";
 import "./Login.css";
-
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { login } from "./loginSlice";
 import { Button, Checkbox, Form, Input } from "antd";
-import { Link } from "react-router-dom";
-import { formatCountdown } from "antd/es/statistic/utils";
+
+import { loginUser } from "../../services/login.service";
 
 const Login = () => {
-
-  // const navigate = useNavigate();
-  // const dispatch = useDispatch();
-  // const userlogin = useSelector(userData); 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  // const userlogin = useSelector(userData);
 
   // const submitForm = () => {
-    
+
   // }
 
-  const onFinish = values => {
-    console.log("Success:", values);
+  const onFinish = async values => {
+    let res = await loginUser(values);
+    dispatch(login(res));
+    navigate("../user-area");
   };
-  const onFinishFailed = errorInfo => {
-    console.log("Failed:", errorInfo);
-  };
+  const onFinishFailed = errorInfo => {};
 
   return (
     <div className="loginDesign">
@@ -44,33 +41,21 @@ const Login = () => {
         autoComplete="off"
       >
         <Form.Item
-          label="Username"
-          name="username"
+          name="email"
+          label="E-mail"
           rules={[
             {
+              type: "email",
+              message: "The input is not valid E-mail!",
+            },
+            {
               required: true,
-              message: "Please input your username!",
+              message: "Please input your E-mail!",
             },
           ]}
         >
-          <Input type ="text" />
+          <Input />
         </Form.Item>
-        <Form.Item
-        name="email"
-        label="E-mail"
-        rules={[
-          {
-            type: 'email',
-            message: 'The input is not valid E-mail!',
-          },
-          {
-            required: true,
-            message: 'Please input your E-mail!',
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
         <Form.Item
           label="Password"
           name="password"
@@ -84,7 +69,8 @@ const Login = () => {
           <Input.Password />
         </Form.Item>
 
-        <Form.Item
+        {/* We may implement this after */}
+        {/* <Form.Item
           name="remember"
           valuePropName="checked"
           wrapperCol={{
@@ -93,7 +79,7 @@ const Login = () => {
           }}
         >
           <Checkbox>Remember me</Checkbox>
-        </Form.Item>
+        </Form.Item> */}
 
         <Form.Item
           wrapperCol={{
