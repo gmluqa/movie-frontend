@@ -2,12 +2,24 @@ import axios from 'axios';
 
 const API_URL = 'http://localhost:3000'
 
-export const loginUser = async () => {
+let returnedMessage = ""
 
-    let res = await axios.get(`${root}/users/login`);
+export let registerUser = async (values) => {
 
-    console.log("Homo Ex Machina", res);
-
-    return res.data.results;
+    try {
+        await axios.post(`${API_URL}/user/register`, {
+            "FirstName": values.nickname,
+            "LastName": values.nickname,
+            "Email": values.email,
+            "Password": values.password
+        }).then(response => {
+            returnedMessage = response.data.message
+        })
+        return returnedMessage
+    }
+    catch (error) {
+        returnedMessage = "This email has been registered already."
+        return returnedMessage
+    }
 };
 

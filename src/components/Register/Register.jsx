@@ -1,13 +1,10 @@
 import "./Register.css";
-// import { Button, Checkbox, Form, Input } from "antd";
-import React, { useEffect, useState } from "react";
-
-// redux related
-import { useDispatch, useSelector } from "react-redux";
-import { registerData } from "./registerSlice";
+import React, { useState } from "react";
 
 import { Button, Checkbox, Form, Input, Select } from "antd";
 const { Option } = Select;
+
+import { registerUser } from "../../services/register.service";
 
 const formItemLayout = {
   labelCol: {
@@ -41,18 +38,18 @@ const tailFormItemLayout = {
 };
 
 const Register = () => {
-  const dispatch = useDispatch();
-
-  const registerFromRdx = useSelector(registerData);
-
-  useEffect(() => {
-    console.log("Soy register", registerFromRdx);
-  });
+  // useEffect(() => {
+  //   console.log("Soy register", registerFromRdx);
+  // });
 
   const [form] = Form.useForm();
-  const onFinish = values => {
-    console.log("Received values of form: ", values);
+  const onFinish = async values => {
+    let res = await registerUser(values);
+    console.log(res);
+    setRegisterMessage(res);
+    // register service called(values)
   };
+
   const prefixSelector = (
     <Form.Item name="prefix" noStyle>
       <Select
@@ -78,7 +75,8 @@ const Register = () => {
     </Form.Item>
   );
 
-  // Here is the hook
+  // Here are the hooks
+  const [registerMessage, setRegisterMessage] = useState("");
   const [autoCompleteResult, setAutoCompleteResult] = useState([]);
 
   // Here is the input handler
@@ -324,6 +322,7 @@ const Register = () => {
           Register
         </Button>
       </Form.Item>
+      <div>{registerMessage}</div>
     </Form>
   );
 };
