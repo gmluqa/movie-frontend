@@ -1,73 +1,30 @@
-import React, {useState,useEffect} from "react"; 
-import { useNavigate } from "react-router-dom";
-import {useSelector, useDispatch} from "react-redux";
-import {userData, login} from "../userSlice";
-import { loginUser } from "../../services/apiCalls";
+import React from "react";
+// import React, {useState,useEffect} from "react"; 
+// import { useNavigate } from "react-router-dom";
+// import {useSelector, useDispatch} from "react-redux";
+// import {userData, login} from "../userSlice";
 import "./Login.css";
-
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { login } from "./loginSlice";
 import { Button, Checkbox, Form, Input } from "antd";
-// import { Link } from "react-router-dom";
-// import { formatCountdown } from "antd/es/statistic/utils";
-// import { set } from "immer/dist/internal";
+import { Link } from "react-router-dom";
+import { formatCountdown } from "antd/es/statistic/utils";
 
 const Login = () => {
 
-// HOOKS  
-  const [criteria,setCriteria] = useState('');
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const userlogin = useSelector(userData);
-  
-  const [user, setUser] = useState({
-    email: '',
-    password: ''
-});
+  // const navigate = useNavigate();
+  // const dispatch = useDispatch();
+  // const userlogin = useSelector(userData); 
 
-// HANDLERS 
-
-  // const criteriaHandler = (e) => {
-  //   set.Criteria (e.target.value);
+  // const submitForm = () => {
+    
   // }
- 
-  const inputHandler = (e) => {
-    setUser((prevState)=>({
-      ...prevState,
-      [e.target.name]: e.target.value
-    }))
-  };
-
-  const logout = () => {
-    dispatch(userout({ userlog: {} }))
-    return navigate("/login");
-};
-
-  useEffect(() => {
-  if (userlogin?.userlog?.token !== undefined) {
-      navigate("/user-area");
-  };
-}, []);
-
-const logMe = () => {
-         
-  loginUser(user)
-      .then(data => {
-          console.log(data);
-      })
-
-  dispatch(login({token: password}));
-
-  setTimeout(()=>{
-      navigate("/user-area");
-  },1000);
-
-};
 
   const onFinish = values => {
     console.log("Success:", values);
   };
-  const onFinishFailed = errorInfo => {
-    console.log("Failed:", errorInfo);
-  };
+  const onFinishFailed = errorInfo => {};
 
   return (
     <div className="loginDesign">
@@ -88,20 +45,22 @@ const logMe = () => {
         <Form.Item
           label="Username"
           name="username"
-          onChange={(e) => inputHandler(e)}
           rules={[
             {
+              type: "email",
+              message: "The input is not valid E-mail!",
+            },
+            {
               required: true,
-              message: "Please input your username!",
+              message: "Please input your E-mail!",
             },
           ]}
         >
-          <Input type ="text" />
+          <Input />
         </Form.Item>
         <Form.Item
         name="email"
         label="E-mail"
-        onChange={(e) => inputHandler(e)}
         rules={[
           {
             type: 'email',
@@ -129,7 +88,8 @@ const logMe = () => {
           <Input.Password />
         </Form.Item>
 
-        <Form.Item
+        {/* We may implement this after */}
+        {/* <Form.Item
           name="remember"
           valuePropName="checked"
           wrapperCol={{
@@ -138,7 +98,7 @@ const logMe = () => {
           }}
         >
           <Checkbox>Remember me</Checkbox>
-        </Form.Item>
+        </Form.Item> */}
 
         <Form.Item
           wrapperCol={{

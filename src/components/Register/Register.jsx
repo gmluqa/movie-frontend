@@ -167,6 +167,7 @@ const Register = () => {
         <Input.Password />
       </Form.Item>
 
+<<<<<<< HEAD
       <Form.Item
         name="nickname"
         label="Nickname"
@@ -182,6 +183,8 @@ const Register = () => {
         <Input />
       </Form.Item>
 
+=======
+>>>>>>> main
       {/* <Form.Item
         name="residence"
         label="Habitual Residence"
