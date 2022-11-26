@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Login.css";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { login } from "./loginSlice";
 import { Button, Checkbox, Form, Input } from "antd";
-
+import { decodeToken } from "react-jwt";
 import { loginUser } from "../../services/login.service";
 
 const Login = () => {
+  const [messageText, setMessageText] = useState({ message: "" });
   const dispatch = useDispatch();
   const navigate = useNavigate();
   // const userlogin = useSelector(userData);
@@ -18,8 +19,30 @@ const Login = () => {
 
   const onFinish = async values => {
     let res = await loginUser(values);
-    dispatch(login(res));
-    navigate("../user-area");
+
+    // assuming res is invalid= >
+    console.log(res);
+    if (res == "Invalid E-mail or password.") {
+      console.log(res);
+      setMessageText({
+        message: res,
+      });
+    } else {
+      let decoded = decodeToken(res);
+      console.log(decoded);
+      let userType = decoded.UserType;
+      console.log(userType);
+      dispatch(login(res));
+      if (userType == "User") {
+        navigate("../user-area");
+      } else if (userType == "Admin") {
+        navigate("../admin-area");
+      } else {
+        setMessageText({
+          message: "Me has roto la app, enorabuena",
+        });
+      }
+    }
   };
   const onFinishFailed = errorInfo => {};
 
@@ -92,6 +115,7 @@ const Login = () => {
           </Button>
         </Form.Item>
       </Form>
+      <div className="messageText">{messageText.message}</div>
     </div>
   );
 };
