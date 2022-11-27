@@ -23,20 +23,22 @@ const UserArea = () => {
       >
         <Meta title="My rentals" description="" />
       </Card>
-      <Card
-        hoverable
-        onClick={() => console.log("this button renders /articles view")}
-        style={{ width: 240 }}
-        cover={
-          <img
-            alt="Make a rental"
-            src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
-            height={"200vh"}
-          />
-        }
-      >
-        <Meta title="Make a rental" description="" />
-      </Card>
+      <Link to="./articles" style={{ textDecoration: "none" }}>
+        <Card
+          hoverable
+          onClick={() => console.log("this button renders /articles view")}
+          style={{ width: 240 }}
+          cover={
+            <img
+              alt="Make a rental"
+              src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
+              height={"200vh"}
+            />
+          }
+        >
+          <Meta title="Make a rental" description="" />
+        </Card>
+      </Link>
       <Link to="./subscriptions" style={{ textDecoration: "none" }}>
         <Card
           hoverable
