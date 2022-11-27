@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import { bringMoviesCarouselTop, bringMoviesCarouselLast } from "../../services/apiCalls";
 import { Carousel } from "antd";
 import "./Home.css";
 
@@ -12,24 +13,90 @@ const Home = () => {
     background: "#364d79",
   };
 
+  const [moviesCarouselTop, setMoviesCarouselTop] = useState([]);
+  const [moviesCarouselLast, setMoviesCarouselLast] = useState([]);
+
+  useEffect(()=>{
+
+    if(moviesCarouselTop.length === 0){
+
+      bringMoviesCarouselTop()
+        .then(
+          res => {
+           
+            setMoviesCarouselTop(res)
+          }
+        )
+        .catch(error => console.log(error));
+    } else {
+      console.log("hello G", moviesCarouselTop)
+    }
+
+  },[moviesCarouselTop])
+
+  useEffect(()=>{
+
+    if(moviesCarouselLast.length === 0){
+
+      bringMoviesCarouselLast()
+        .then(
+          res => {
+           
+            setMoviesCarouselLast(res)
+          }
+        )
+        .catch(error => console.log(error));
+    } else {
+    }
+
+  },[moviesCarouselLast])
+
   return (
     <>
+
+    {
+      moviesCarouselTop.length > 0 &&
+
       <Carousel autoplay>
-        <div>
-          <h3 style={contentStyle}>Contenido 1</h3>
-        </div>
-        <div>
-          <h3 style={contentStyle}>Contenido 2</h3>
-        </div>
-        <div>
-          <h3 style={contentStyle}>Contenido 3</h3>
-        </div>
-        <div>
-          <h3 style={contentStyle}>Contenido 4</h3>
-        </div>
+
+        {
+          moviesCarouselTop.slice(0,5).map(
+            movie => {
+              return(
+                <div key={movie.id}>
+                  <h3 style={contentStyle}><img className='posterDesign' src={movie.Poster} alt={movie.id}/></h3>
+                </div>
+              )
+            }
+          )
+        }
+        
       </Carousel>
 
-      <div className="contentParent">
+    }
+
+    {
+      moviesCarouselLast.length > 0 &&
+
+      <Carousel autoplay>
+
+        {
+          moviesCarouselLast.slice(0,3).map(
+            movie => {
+              return(
+                <div key={movie.id}>
+                  <h3 style={contentStyle}><img className='posterDesign' src={movie.Poster} alt={movie.id}/></h3>
+                </div>
+              )
+            }
+          )
+        }
+        
+      </Carousel>
+    }
+      
+
+      {/* <div className="contentParent">
         <div>This is some content</div>
       </div>
       <div className="contentParent">
@@ -43,7 +110,7 @@ const Home = () => {
       </div>
       <div className="contentParent">
         <div>This is more content</div>
-      </div>
+      </div> */}
     </>
   );
 };

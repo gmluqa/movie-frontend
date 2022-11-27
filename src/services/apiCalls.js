@@ -11,3 +11,18 @@ export const loginUser = async () => {
     return res.data.results; 
 };
 
+export const bringMoviesCarouselTop = async () => {
+
+
+    let res = await axios.get(`${root}/product/movies/getTopRated`);
+
+    return res.data;
+};
+
+export const bringMoviesCarouselLast = async () => {
+
+
+    let res = await axios.get(`${root}/product/movies/getTopRated`);
+
+    return res.data;
+};

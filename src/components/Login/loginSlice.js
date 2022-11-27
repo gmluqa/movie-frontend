@@ -10,10 +10,14 @@ const loginSlice = createSlice({
             console.log("store updating...")
             console.log(action.payload)
             state = action.payload
-
+        },
+        logout(state, action) {
+            console.log("store updating...")
+            console.log(action.payload)
+            state = action.payload
         },
     }
 })
 
-export const { login } = loginSlice.actions
+export const { login, logout } = loginSlice.actions
 export default loginSlice.reducer
