@@ -1,42 +1,135 @@
 import React, { useState, useEffect } from "react";
+import "./Articles.css";
 import { Input } from "antd";
-const { TextArea } = Input;
+const { Search } = Input;
+import { searchArticles } from "../../services/searchArticles.service";
+import { Card } from "antd";
+
+const { Meta } = Card;
+
+const renderArticles = () => {
+  <div>thing</div>;
+};
 
 const Articles = () => {
   const [criteria, setCriteria] = useState("");
+  const [results, setResults] = useState({});
 
   const onChange = e => {
     setCriteria(e.target.value);
   };
 
   useEffect(() => {
+    console.log(results?.data);
     if (criteria !== "") {
-      //Voy a aplicar mi proceso de debounce....
-
       const bring = setTimeout(() => {
-        searchFilms(criteria)
+        searchArticles(criteria)
           .then(res => {
-            //Guardo en RDX
-            // dispatch(addSearch({ movies: res.data.results }));
+            setResults(res);
+            return res;
           })
           .catch(error => console.log(error));
       }, 350);
 
       return () => clearTimeout(bring);
-    } else if (criteria === "") {
-      //Guardo en RDX pelis vacías...
-      //   dispatch(cleanSearch({ movies: [] }));
+    } else {
+      setResults({});
     }
   }, [criteria]);
 
   return (
     <>
-      <Input
-        placeholder="Search for media here..."
-        allowClear
-        onChange={onChange}
-      />
-      <div>{criteria}</div>
+      <div className="searchWrapper">
+        <Search
+          className="searchBox"
+          placeholder="Search for media here..."
+          allowClear
+          enterButton="Search"
+          size="large"
+          onChange={onChange}
+          loading
+        ></Search>
+      </div>
+      <div className="cardsWrapper">
+        {results?.data?.[0]?.Name ? (
+          <Card
+            className="cardComponent"
+            hoverable
+            style={{
+              width: 240,
+            }}
+            cover={<img alt="example" src={results.data[0].Poster} />}
+          >
+            <Meta
+              title={results.data[0].Name}
+              description="www.instagram.com"
+            />
+            <button>rent</button>
+          </Card>
+        ) : null}
+        {results?.data?.[1]?.Name ? (
+          <Card
+            hoverable
+            style={{
+              width: 240,
+            }}
+            cover={<img alt="example" src={results.data[1].Poster} />}
+          >
+            <Meta
+              title={results.data[1].Name}
+              description="www.instagram.com"
+            />
+            <button>rent</button>
+          </Card>
+        ) : null}
+        {results?.data?.[2]?.Name ? (
+          <Card
+            hoverable
+            style={{
+              width: 240,
+            }}
+            cover={<img alt="example" src={results.data[2].Poster} />}
+          >
+            <Meta
+              title={results.data[2].Name}
+              description="www.instagram.com"
+            />
+            <button>rent</button>
+          </Card>
+        ) : null}
+        {results?.data?.[3]?.Name ? (
+          <Card
+            hoverable
+            style={{
+              width: 240,
+            }}
+            cover={<img alt="example" src={results.data[3].Poster} />}
+          >
+            <Meta
+              title={results.data[3].Name}
+              description="www.instagram.com"
+            />
+            <button>rent</button>
+          </Card>
+        ) : null}
+
+        {results?.data?.[4]?.Name ? (
+          <Card
+            className="cardComponent"
+            hoverable
+            style={{
+              width: 240,
+            }}
+            cover={<img alt="example" src={results.data[4].Poster} />}
+          >
+            <Meta
+              title={results.data[4].Name}
+              description="www.instagram.com"
+            />
+            <button>rent</button>
+          </Card>
+        ) : null}
+      </div>
     </>
   );
 };
