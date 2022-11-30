@@ -1,0 +1,17 @@
+.searchBox {
+  width: 66vw;
+}
+
+.searchWrapper {
+  display: grid;
+  place-items: center;
+  width: 100vw;
+  padding-top: 5vh;
+}
+
+.cardsWrapper {
+  padding-top: 5vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
