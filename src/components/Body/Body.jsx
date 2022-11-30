@@ -9,6 +9,7 @@ import Register from "../Register/Register";
 import Subscriptions from "../Subscriptions/Subscriptions";
 import AdminArea from "../AdminArea/AdminArea";
 import Articles from "../Articles/Articles";
+import Rentals from "../Rentals/Rentals";
 
 const Body = () => {
   return (
@@ -20,6 +21,7 @@ const Body = () => {
         <Route path="/user-area" element={<UserArea />} />
         <Route path="/user-area/subscriptions" element={<Subscriptions />} />
         <Route path="/user-area/articles" element={<Articles />} />
+        <Route path="/user-area/rentals" element={<Rentals />} />
         <Route path="/admin-area" element={<AdminArea />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
