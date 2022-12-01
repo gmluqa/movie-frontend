@@ -52,15 +52,15 @@ const Home = () => {
   },[moviesCarouselLast])
 
   return (
-    <>
-
+    // <div className="homeContainer">
+<>
     {
       moviesCarouselTop.length > 0 &&
 
-      <Carousel autoplay>
+      <Carousel autoplay className="carouselTop">
 
         {
-          moviesCarouselTop.slice(0,5).map(
+          moviesCarouselTop.slice(0,4).map(
             movie => {
               return(
                 <div key={movie.id}>
@@ -78,7 +78,7 @@ const Home = () => {
     {
       moviesCarouselLast.length > 0 &&
 
-      <Carousel autoplay>
+      <Carousel autoplay className="carouselTop">
 
         {
           moviesCarouselLast.slice(0,3).map(
@@ -111,6 +111,7 @@ const Home = () => {
       <div className="contentParent">
         <div>This is more content</div>
       </div> */}
+    {/* // </div> */}
     </>
   );
 };

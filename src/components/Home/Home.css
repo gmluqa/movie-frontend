@@ -1,11 +1,20 @@
-.contentParent {
+.homeContainer{
   width: 100vw;
   justify-content: center;
   align-items: center;
   display: flex;
+  flex-direction: column;
 }
 
 html {
   max-width: 100%;
   overflow-x: hidden;
+}
+
+.carouselTop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60vw;
+  height: 60vh;
 }

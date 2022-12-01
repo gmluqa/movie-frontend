@@ -1,7 +1,31 @@
-.cardsParent {
+.adminOptions {
   display: flex;
   justify-content: center;
   justify-content: space-evenly;
   align-items: center;
   height: 60vh;
+}
+.searchEmail{
+  height: 2.5em;
+  width: 7.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2em;
+  background-color: white;
+  border-radius: 40em;
+  cursor: pointer;
+  color: red;
+}
+.searchRentals{
+  height: 2.5em;
+  width: 7.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2em;
+  background-color:white;
+  border-radius: 40em;
+  cursor: pointer;
+  color:red;
 }

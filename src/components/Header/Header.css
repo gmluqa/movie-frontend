@@ -1,13 +1,47 @@
 .classHeader {
   height: 20vh;
   width: 100vw;
-  background-color: blue;
+  background-color: black;
   color: white;
   display: flex;
   align-items: center;
+  justify-content:flex-start;
+  flex-direction: row;
 }
 
 .headerLogo {
-  height: 80%;
+  height: 90%;
   margin-left: 2.5%;
+  display: flex;
 }
+/* .headerLogo2 {
+  height: 9.3em;
+  margin-left: 64em;
+  display: flex;
+} */
+
+/* .loginButton {
+  background-color: red;
+  margin-left: 50%;
+  width: 5vw;
+  display: flex;
+}
+
+.registerButton {
+  color: black;
+  background-color: whitesmoke;
+  margin-left: 50%;
+  width: 5vw;
+  display: flex;
+ 
+}
+.subscribeButton {
+  background-color: red;
+  margin-left: 50%;
+  display: flex;
+}
+#button{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+} */
