@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 
 
-
 import { motion } from "framer-motion"
 
 const AdminArea = () => {
@@ -12,7 +11,7 @@ const AdminArea = () => {
   return (
     <div className="adminOptions">
        <Link to="/admin-area/search-user">
-      <motion.button animate = {{ y : 100}} transition ={{duration : 2}} className = "searchEmail">USERS</motion.button>
+      <motion.h1 animate = {{ y : 100}} transition ={{duration : 2}} className = "searchEmail">USERS</motion.h1>
       </Link>
       <Link to="/admin-area/search-rental">
       <motion.h1 animate= {{y:100}} transition ={{duration : 2}} className="searchRentals">RENTALS</motion.h1>
