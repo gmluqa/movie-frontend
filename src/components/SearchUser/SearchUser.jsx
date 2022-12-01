@@ -7,10 +7,6 @@ import { Card } from "antd";
 
 const { Meta } = Card;
 
-const renderArticles = () => {
-  <div>thing</div>;
-};
-
 const findUser = () => {
   const [criteria, setCriteria] = useState("");
   const [results, setResults] = useState({});
@@ -51,23 +47,23 @@ const findUser = () => {
         ></Search>
       </div>
       <div className="cardsWrapper">
-        {results?.data?.[0]?.Name ? (
+        {results?.data?.[0]?.User ? (
           <Card
             className="cardComponent"
             hoverable
             style={{
               width: 240,
             }}
-            cover={<img alt="example" src={results.data[0].Poster} />}
+            cover={<img alt="example" src={results.data[0].Name} />}
           >
             <Meta
-              title={results.data[0].Name}
+              title={results.data[0].Email}
               description="www.instagram.com"
             />
             <button>rent</button>
           </Card>
         ) : null}
-        {results?.data?.[1]?.Name ? (
+        {results?.data?.[1]?.User ? (
           <Card
             hoverable
             style={{
