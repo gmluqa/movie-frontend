@@ -13,7 +13,7 @@ export let searchUser = async (value) => {
         return returnedUser
     }
     catch (error) {
-        returnedMessage = "This email has been registered already."
+        returnedMessage = "User Not Found"
         return returnedUser;
 
     }
