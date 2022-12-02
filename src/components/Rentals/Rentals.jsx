@@ -1,3 +1,4 @@
+import { Card } from "antd";
 import React, { useState } from "react";
 import { render } from "react-dom";
 import { getOrders } from "../../services/getUserOrders.service.js";
@@ -19,8 +20,17 @@ const Rentals = () => {
     /* This ternary checks if the article statehook is empty, if it is, it fills it with the users rentals, else does nothing*/
     Object.entries(articles).length === 0 ? setArticles(orders) : void 0;
   }
+  {
+    console.log(articles);
+  }
 
-  return <>{articles?.data?.[0]?.Product_ID}</>;
+  return (
+    <>
+      {articles?.data?.map(article => {
+        return <Card>{article.Product_ID}</Card>;
+      })}
+    </>
+  );
 };
 
 export default Rentals;
