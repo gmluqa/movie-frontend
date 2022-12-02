@@ -20,8 +20,8 @@ export const bringMoviesCarouselLast = async () => {
     return res.data;
 };
 
-export const bringUserbyEmail = async () => {
+// export const bringUserbyEmail = async () => {
 
-    let res = await axios.get(`${root}/user/getUserByEmail`);
-    return res.data; 
-}
+//     let res = await axios.get(`${root}/user/getUserByEmail`);
+//     return res.data; 
+// }

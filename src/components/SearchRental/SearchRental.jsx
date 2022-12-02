@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import "./SearchRental.css";
 import { Input } from "antd";
 const { Search } = Input;
-import { searchRental } from "../../services/searchRentals.service";
+import { searchUser} from "../../services/searchRentals.service";
 import { Card } from "antd";
 
 const { Meta } = Card;
@@ -19,7 +19,7 @@ const findRental = () => {
     console.log(results?.data);
     if (criteria !== "") {
       const bring = setTimeout(() => {
-        searchRental(criteria)
+        searchUser(criteria)
           .then(res => {
             setResults(res);
             return res;
