@@ -69,7 +69,7 @@ const findUser = () => {
             style={{
               width: 240,
             }}
-            cover={<img alt="example" src={results.data[1].Poster} />}
+            cover={<img alt="example" src={results.data[1].Name} />}
           >
             <Meta
               title={results.data[1].Name}
@@ -78,7 +78,7 @@ const findUser = () => {
             <button>rent</button>
           </Card>
         ) : null}
-        {results?.data?.[2]?.Name ? (
+        {results?.data?.[2]?.User ? (
           <Card
             hoverable
             style={{
