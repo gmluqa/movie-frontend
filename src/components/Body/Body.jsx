@@ -11,8 +11,7 @@ import AdminArea from "../AdminArea/AdminArea";
 import Articles from "../Articles/Articles";
 import SearchUser from "../SearchUser/SearchUser";
 import SearchRental from "../SearchRental/SearchRental";
-
-
+import Rentals from "../Rentals/Rentals";
 
 const Body = () => {
   return (
@@ -26,8 +25,8 @@ const Body = () => {
         <Route path="/user-area/articles" element={<Articles />} />
         <Route path="/user-area/rentals" element={<Rentals />} />
         <Route path="/admin-area" element={<AdminArea />} />
-        <Route path="/admin-area/search-user" element={<SearchUser />} /> 
-        <Route path="/admin-area/search-rental" element={<SearchRental />} /> 
+        <Route path="/admin-area/search-user" element={<SearchUser />} />
+        <Route path="/admin-area/search-rental" element={<SearchRental />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
