@@ -26,22 +26,30 @@ useEffect (() =>{
 },[bringallrentals])
   
 return (
-
-  <div className="allUserDesign">
+         
+        <div className="allUserDesign">
+     
    <motion.div transition=
+   
    {{layout:{duration: 1}}}
    layout onClick={() => setTheMagic(!magicmotion)} 
    style={{borderRadius:'1rem', boxShadow: '0px 10px 30px rgba(0,255,0,0.8)'}}
    className="allUserCard">
     <motion.h2 layout="position"> rented movie name</motion.h2>
+      
       {magicmotion && ( 
+      
       <motion.div className="rentalFields">
+      
       <p>picture</p>
       <p>users email</p>
       <button>go</button>
       </motion.div>
+      
       )}
+   
     </motion.div>
+
   </div>
 )
 
