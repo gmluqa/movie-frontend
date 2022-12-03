@@ -20,10 +20,8 @@ const Login = () => {
   const onFinish = async values => {
     let res = await loginUser(values);
 
-    // assuming res is invalid= >
-    console.log(res);
+    // assuming res is invalid
     if (res == "Invalid E-mail or password.") {
-      console.log(res);
       setMessageText({
         message: res,
       });
@@ -33,6 +31,12 @@ const Login = () => {
       let userType = decoded.UserType;
       console.log(userType);
       dispatch(login(res));
+
+      // here we set the raw JWT to localstorage
+      localStorage.setItem("JWT", JSON.stringify(res));
+      // here we set the decoded JWT to localstorage
+      localStorage.setItem("UserInfo", JSON.stringify(decodeToken(res)));
+
       if (userType == "User") {
         navigate("../user-area");
       } else if (userType == "Admin") {

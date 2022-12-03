@@ -7,22 +7,24 @@ import { Link } from "react-router-dom";
 const UserArea = () => {
   return (
     <div className="cardsParent">
-      <Card
-        hoverable
-        onClick={() =>
-          console.log("this button renders /user-area/rentals view")
-        }
-        style={{ width: 240 }}
-        cover={
-          <img
-            alt="My rentals"
-            src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
-            height={"200vh"}
-          />
-        }
-      >
-        <Meta title="My rentals" description="" />
-      </Card>
+      <Link to="./rentals" style={{ textDecoration: "none" }}>
+        <Card
+          hoverable
+          onClick={() =>
+            console.log("this button renders /user-area/rentals view")
+          }
+          style={{ width: 240 }}
+          cover={
+            <img
+              alt="My rentals"
+              src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
+              height={"200vh"}
+            />
+          }
+        >
+          <Meta title="My rentals" description="" />
+        </Card>
+      </Link>
       <Link to="./articles" style={{ textDecoration: "none" }}>
         <Card
           hoverable
