@@ -131,6 +131,3 @@ const findUser = () => {
 };
 
 export default findUser;
-
-
-

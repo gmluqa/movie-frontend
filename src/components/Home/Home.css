@@ -1,10 +1,10 @@
-.homeContainer{
+/* .homeContainer{
   width: 100vw;
   justify-content: center;
   align-items:baseline;
   display: flex;
   flex-direction: column;
-}
+} */
 
 html {
   max-width: 100%;
@@ -12,10 +12,10 @@ html {
 }
 
 .carouselTop {
-  /* display: flex; */
+  display: flex;
   justify-content: center;
   align-items: center;
   width: 60vw;
   height: 60vh;
-  background-color:darkred;
+  background-color:black;
 }

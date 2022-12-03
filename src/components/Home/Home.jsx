@@ -93,26 +93,9 @@ const Home = () => {
         }
         
       </Carousel>
-    }
-      
-
-      {/* <div className="contentParent">
-        <div>This is some content</div>
-      </div>
-      <div className="contentParent">
-        <div>This is more content</div>
-      </div>
-      <div className="contentParent">
-        <div>This is more content</div>
-      </div>
-      <div className="contentParent">
-        <div>This is more content</div>
-      </div>
-      <div className="contentParent">
-        <div>This is more content</div>
-      </div> */}
-    {/* // </div> */}
+    } 
     </>
+    
   );
 };
 
