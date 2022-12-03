@@ -3,6 +3,7 @@ import axios from 'axios';
 const API_URL = 'http://localhost:3000'
 
 let returnedArticles = {}
+let returnedMessage = ""
 
 export let getOrders = async (userInfo, jwt) => {
 
