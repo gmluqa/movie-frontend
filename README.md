@@ -25,11 +25,7 @@ The front-end has been uploaded to AWS amplify at the following domain: [https:/
 - [Ant Design](https://ant.design/)
 - [Framer Motion](https://www.framer.com/motion/)
 
-# Development set-up
-
-Clone this repo `git clone https://github.com/gmluqa/movie-frontend.git` and run `npm i` to begin developing!
-
-# Git methodoloty
+# Git collaboration methodoloty we used
 
 ![alt text](https://files.programster.org/tutorials/git/flows/github-flow.png)
 
