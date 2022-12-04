@@ -52,8 +52,8 @@ const Home = () => {
   },[moviesCarouselLast])
 
   return (
-    // <div className="homeContainer">
-<>
+    <div className="homeContainer">
+
     {
       moviesCarouselTop.length > 0 &&
 
@@ -64,7 +64,7 @@ const Home = () => {
             movie => {
               return(
                 <div key={movie.id}>
-                  <h3 style={contentStyle}><img className='posterDesign' src={movie.Poster} alt={movie.id}/></h3>
+                  <h3 style={{width:"30em" , height: "60em", alignItems: "center", justifyContent: "center"}}><img className='posterDesign' style={{width:"20em" , height: "30em", contentStyle}} src={movie.Poster} alt={movie.id}/></h3>
                 </div>
               )
             }
@@ -75,10 +75,10 @@ const Home = () => {
 
     }
 
-    {
+    {/* {
       moviesCarouselLast.length > 0 &&
 
-      <Carousel autoplay className="carouselTop2">
+      <Carousel autoplay className="carouselTop">
 
         {
           moviesCarouselLast.slice(0,3).map(
@@ -93,9 +93,9 @@ const Home = () => {
         }
         
       </Carousel>
-    } 
-    </>
-    
+    }  */}
+   
+    </div>
   );
 };
 

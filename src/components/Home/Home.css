@@ -1,10 +1,13 @@
-/* .homeContainer{
+.homeContainer{
   width: 100vw;
-  justify-content: center;
-  align-items:baseline;
+  height: 10vh;
+  justify-content: space-around;
+  /* align-items: center;
+  margin-top: 20em; */
   display: flex;
-  flex-direction: column;
-} */
+  flex-direction: row;
+  margin-bottom: 23em;
+}
 
 html {
   max-width: 100%;
@@ -15,18 +18,11 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 30vw;
+  width: 40vw;
   height: 30vh;
-  background-color:black;
-  border-radius: 1rem;
- 
+  /* background-color:black; */
 }
-.carouselTop2{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 30vw;
-  height: 30vh;
-  background-color:black;
-  border-radius: 1rem;
+
+.posterDesign {
+  
 }
