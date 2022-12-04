@@ -4,6 +4,7 @@ import { Input } from "antd";
 const { Search } = Input;
 import { searchArticles } from "../../services/searchArticles.service";
 import { Card } from "antd";
+import { userMakeRental } from "../../services/userMakeRental.service";
 
 const { Meta } = Card;
 
@@ -64,7 +65,9 @@ const Articles = () => {
               title={results.data[0].Name}
               description="www.instagram.com"
             />
-            <button>rent</button>
+            <button onClick={() => userMakeRental(results.data[0].id)}>
+              rent
+            </button>
           </Card>
         ) : null}
         {results?.data?.[1]?.Name ? (
@@ -79,7 +82,9 @@ const Articles = () => {
               title={results.data[1].Name}
               description="www.instagram.com"
             />
-            <button>rent</button>
+            <button onClick={() => userMakeRental(results.data[1].id)}>
+              rent
+            </button>
           </Card>
         ) : null}
         {results?.data?.[2]?.Name ? (
@@ -94,7 +99,9 @@ const Articles = () => {
               title={results.data[2].Name}
               description="www.instagram.com"
             />
-            <button>rent</button>
+            <button onClick={() => userMakeRental(results.data[2].id)}>
+              rent
+            </button>
           </Card>
         ) : null}
         {results?.data?.[3]?.Name ? (
@@ -109,7 +116,9 @@ const Articles = () => {
               title={results.data[3].Name}
               description="www.instagram.com"
             />
-            <button>rent</button>
+            <button onClick={() => userMakeRental(results.data[3].id)}>
+              rent
+            </button>
           </Card>
         ) : null}
 
@@ -126,7 +135,9 @@ const Articles = () => {
               title={results.data[4].Name}
               description="www.instagram.com"
             />
-            <button>rent</button>
+            <button onClick={() => userMakeRental(results.data[4].id)}>
+              rent
+            </button>
           </Card>
         ) : null}
       </div>
