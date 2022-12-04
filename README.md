@@ -1,5 +1,14 @@
 # movie-frontend
 
+## What is the project? 🙋
+
+The project consists of a front-end made in react for a movie rental site.
+This project was done as a group project between: [@ManelQM](https://github.com/ManelQM) && [@gmluqa](https://github.com/gmluqa).
+
+## Demo the project 🚀
+
+The front-end has been uploaded to AWS amplify
+
 # Development set-up
 
 Clone this repo `git clone https://github.com/gmluqa/movie-frontend.git` and run `npm i` to begin developing!
