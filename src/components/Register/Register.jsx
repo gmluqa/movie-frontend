@@ -100,13 +100,13 @@ const Register = () => {
   }));
 
   return (
-    // <div className="registerDesign">
+    <div className="registerDesign">
     <Form
       {...formItemLayout}
       form={form}
       name="register"
       
-      style={{width:"25em", height: "30em", marginTop:"5em"}}
+      style={{width:"25em", height: "30em",marginLeft:"40em", marginBottom: "-4em"}}
       onFinish={onFinish}
       initialValues={{
         residence: ["zhejiang", "hangzhou", "xihu"],
@@ -211,7 +211,7 @@ const Register = () => {
       </Form.Item>
       <div>{registerMessage}</div>
     </Form>
-    //  </div>
+     </div>
   );
 };
 export default Register;

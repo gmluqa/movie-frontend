@@ -1,5 +1,4 @@
 .registerDesign { 
-    width: 50em;
-    height: 30em;
+    margin-top: 5em;
     display: flex;
 }
