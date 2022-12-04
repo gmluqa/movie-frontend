@@ -3,16 +3,22 @@ import "./Header.css";
 import { Link } from "react-router-dom";
 import store from "../../app/store";
 import { Button, Space, ConfigProvider } from "antd";
+import { useDispatch } from "react-redux";
+import { logout } from "../Login/loginSlice";
 
 let userLoggedIn = new Boolean();
 
 const Header = () => {
   const [loggedIn, setLogIn] = useState(false);
+  const dispatch = useDispatch();
 
-  store.subscribe(() => {
-    console.log("i changed");
+  store.subscribe(async () => {
     userLoggedIn = store.getState().header.userLogged;
     setLogIn(userLoggedIn);
+    // if (!localStorage.getItem("JWT")) {
+    //   console.log(localStorage.getItem("JWT"));
+    //   setLogIn(false);
+    // }
   });
 
   useEffect(() => {
@@ -54,9 +60,9 @@ const Header = () => {
           <Link to="../user-area">
             <button>User Area</button>
           </Link>
-          {/*<Link to="./"> */}
-          <button>Logout</button>
-          {/* </Link> */}
+          <Link to="./">
+            <button onClick={() => dispatch(logout())}>Logout</button>
+          </Link>
         </div>
       )}
     </div>

@@ -15,6 +15,8 @@ const loginSlice = createSlice({
             console.log("store updating...")
             console.log(action.payload)
             state = action.payload
+            localStorage.removeItem("JWT")
+            localStorage.removeItem("UserInfo")
         },
     }
 })
