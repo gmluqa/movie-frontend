@@ -78,7 +78,7 @@ const Home = () => {
     {
       moviesCarouselLast.length > 0 &&
 
-      <Carousel autoplay className="carouselTop">
+      <Carousel autoplay className="carouselTop2">
 
         {
           moviesCarouselLast.slice(0,3).map(

@@ -15,8 +15,18 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 60vw;
-  height: 60vh;
+  width: 30vw;
+  height: 30vh;
   background-color:black;
-  margin-left: 20em;
+  border-radius: 1rem;
+ 
+}
+.carouselTop2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30vw;
+  height: 30vh;
+  background-color:black;
+  border-radius: 1rem;
 }

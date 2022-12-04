@@ -9,6 +9,7 @@ import { loginUser } from "../../services/login.service";
 
 const Login = () => {
   const [messageText, setMessageText] = useState({ message: "" });
+  
   const dispatch = useDispatch();
   const navigate = useNavigate();
   // const userlogin = useSelector(userData);
@@ -73,6 +74,7 @@ const Login = () => {
           rules={[
             {
               type: "email",
+              className: "email",
               message: "The input is not valid E-mail!",
             },
             {
