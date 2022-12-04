@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Header.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import store from "../../app/store";
 import { Button, Space, ConfigProvider } from "antd";
 import { useDispatch } from "react-redux";
@@ -10,7 +10,9 @@ let userLoggedIn = new Boolean();
 
 const Header = () => {
   const [loggedIn, setLogIn] = useState(false);
+
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   store.subscribe(async () => {
     userLoggedIn = store.getState().header.userLogged;
@@ -57,12 +59,22 @@ const Header = () => {
         </div>
       ) : (
         <div>
-          <Link to="../user-area">
-            <button>User Area</button>
-          </Link>
-          <Link to="./">
-            <button onClick={() => dispatch(logout())}>Logout</button>
-          </Link>
+          <Space>
+            <Link to="../user-area">
+              <Button type="primary">User Area</Button>
+            </Link>
+            <Button
+              type="primary"
+              // When logout is clicked, state is cleaned, logged in hook is falsified and app is navigated to "/"
+              onClick={() => {
+                dispatch(logout());
+                setLogIn(false);
+                navigate("/");
+              }}
+            >
+              Logout
+            </Button>
+          </Space>
         </div>
       )}
     </div>
