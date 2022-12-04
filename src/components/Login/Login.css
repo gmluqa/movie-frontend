@@ -1,11 +1,6 @@
 .loginDesign {
-    margin-top: 5em;
-    /* background: rgb(232, 208, 238);
-    background: radial-gradient(circle, rgb(255, 18, 10) 0%, rgba(62,20,86,1) 100%);
-    overflow: hidden;   */
-    /* background: rgb(232, 208, 238);
-    background: radial-gradient(circle, rgb(1, 7, 3) 0%, rgb(221, 206, 206) 100%);
-    overflow: hidden; */
+   
+   
     display: flex;
     align-items: center;
     justify-content: center;

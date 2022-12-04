@@ -55,6 +55,7 @@ const Login = () => {
     <div className="loginDesign">
       <Form
         name="basic"
+        style={{width:"20em" , height: "20em",  marginTop:"5em" }}
         labelCol={{
           span: 8,
         }}

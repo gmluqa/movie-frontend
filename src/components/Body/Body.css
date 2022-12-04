@@ -3,10 +3,10 @@
   width: 100vw;
   background-color: black;
   color: white;
-   /* display: flex; 
+   display: flex; 
   justify-content: center;
- align-items: center; */
+ align-items: center;
  background: rgb(232, 208, 238);
  background: radial-gradient(circle, rgb(255, 18, 10) 0%, rgba(62,20,86,1) 100%);
- overflow: hidden;
+ /* overflow: hidden; */
 }
