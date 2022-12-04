@@ -51,12 +51,14 @@ const Header = () => {
         </div>
       ) : (
         <div>
-          <Link to="../user-area">
-            <button>User Area</button>
-          </Link>
-          {/*<Link to="./"> */}
-          <button>Logout</button>
-          {/* </Link> */}
+          <Space>
+            <Link to="../user-area">
+              <Button type="primary">User Area</Button>
+            </Link>
+            {/*<Link to="./"> */}
+            <Button type="primary">Logout</Button>
+            {/* </Link> */}
+          </Space>
         </div>
       )}
     </div>
