@@ -10,6 +10,11 @@
   flex-direction: row;
 }
 
+.mangaDesign {
+  height: 10em;
+  width: 20em;
+}
+
 .headerLogo {
   height: 90%;
   margin-left: 2.5%;
