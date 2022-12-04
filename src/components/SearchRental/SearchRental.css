@@ -10,7 +10,7 @@
     .allUserCard {
         background: white;
         padding: 3rem 5rem;
-       
+             
     }
 
     h2{
@@ -28,4 +28,9 @@
     .rentalFields{
         width: 10rem;
         height: 15rem;
+    }
+    
+    .imageHolder{
+        width: 3em;
+        height: 5em;
     }
