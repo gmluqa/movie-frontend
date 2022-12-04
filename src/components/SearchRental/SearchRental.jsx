@@ -1,62 +1,49 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import "./SearchRental.css";
-import { searchUser} from "../../services/searchRentals.service";
+import { searchUser } from "../../services/searchRentals.service";
 import { motion } from "framer-motion";
-
-
+import { getAllUserOrders } from "../../services/getAllUserOrders.service";
+import { Card } from "antd";
+const { Meta } = Card;
 
 const findRental = () => {
+  const [rentals, setRentals] = useState([]);
 
-const [bringallrentals, allrentals] = useState([]);
-const [magicmotion, setTheMagic] = useState(false);
-useEffect (() =>{
+  const rentalsArrayMapper = async () => {
+    let rentalsData = await getAllUserOrders();
+    let arr = [];
+    for (let i = 0; i < rentalsData.data.length; i++) {
+      arr.push(rentalsData.data[i]);
+    }
+    return arr;
+  };
 
-  if (bringallrentals.lenght === 0){
-    searchUser()
-    .then(
-      res => {
-        allrentals(res)
-      }
-    )
-    .catch(error)
-  }else {
-    console.log('so what',bringallrentals)
-  }
+  useEffect(() => {
+    const promise = rentalsArrayMapper();
 
-},[bringallrentals])
-  
-return (
-         
-        <div className="allUserDesign">
- 
-   
-   <motion.div className="allUserCard" 
+    promise.then(data => {
+      setRentals(data);
+    });
+  }, []);
 
-   transition=
-   {{layout:{duration: 1}}}
-   layout onClick={() => setTheMagic(!magicmotion)} 
-   style={{borderRadius:'1rem',
-   boxShadow: '0px 10px 30px rgba(0,255,0,0.8)'}}>
-
-         
-    <motion.h2 layout="position"> rented movie name</motion.h2>
-      
-      {magicmotion && ( 
-      
-      <motion.div className="rentalFields">
-      
-      <motion.p>picture</motion.p>
-      <motion.p>users email</motion.p>
-      </motion.div>
-      )}
-    
-    
-     
-    </motion.div>
- 
-  </div>
-)
-
+  return (
+    <div className="cardsWrapper">
+      {rentals.map((item, index) => {
+        return (
+          <Card
+            key={index}
+            style={{
+              width: 240,
+            }}
+          >
+            <div>{`Order ID: ${item.id}`}</div>
+            <div>{`User ID: ${item.User_ID}`}</div>
+            <div>{`Article ID: ${item.Product_ID}`}</div>
+          </Card>
+        );
+      })}
+    </div>
+  );
 };
 
 export default findRental;
