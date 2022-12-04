@@ -11,9 +11,8 @@ import "../Articles/Articles.css";
 const userInfo = JSON.parse(localStorage.getItem("UserInfo"));
 const jwt = JSON.parse(localStorage.getItem("JWT"));
 
-const orders = await getOrders(userInfo, jwt);
-
 const articlesArrayMapper = async () => {
+  let orders = await getOrders(userInfo, jwt);
   let arr = [];
   for (let i = 0; i < orders.data.length; i++) {
     const articleData = await getArticleById(orders.data[i].Product_ID);
@@ -36,27 +35,31 @@ const Rentals = () => {
 
     promise.then(data => {
       setArticles(data);
+      console.log(data);
     });
+    console.log(articles);
   }, []);
 
-  const articlesRenderer = articles.map((item, index) => {
-    console.log(index);
-    return (
-      <Card
-        key={index}
-        className="cardComponent"
-        hoverable
-        style={{
-          width: 240,
-        }}
-        cover={<img alt={item.Name} src={item.Poster} />}
-      >
-        <Meta title={item.Name} description={item.Genre} />
-      </Card>
-    );
-  });
-
-  return <div className="cardsWrapper">{articlesRenderer}</div>;
+  return (
+    <div className="cardsWrapper">
+      {articles.map((item, index) => {
+        console.log("mapping");
+        return (
+          <Card
+            key={index}
+            className="cardComponent"
+            hoverable
+            style={{
+              width: 240,
+            }}
+            cover={<img alt={item.Name} src={item.Poster} />}
+          >
+            <Meta title={item.Name} description={item.Genre} />
+          </Card>
+        );
+      })}
+    </div>
+  );
 };
 
 export default Rentals;
