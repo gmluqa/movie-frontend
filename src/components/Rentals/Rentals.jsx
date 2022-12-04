@@ -17,8 +17,10 @@ const articlesArrayMapper = async () => {
   let arr = [];
   for (let i = 0; i < orders.data.length; i++) {
     const articleData = await getArticleById(orders.data[i].Product_ID);
+
     arr.push(articleData.data);
   }
+  console.log(arr);
   return arr;
 };
 // Just use a hook and connect it to the thing
@@ -27,6 +29,8 @@ const Rentals = () => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
+    setArticles([]);
+    console.log("im mounted");
     // On mount, state hook 'articles' array is filled with all movies
     const promise = articlesArrayMapper();
 
