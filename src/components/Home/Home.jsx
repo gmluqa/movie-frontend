@@ -57,14 +57,14 @@ const Home = () => {
     {
       moviesCarouselTop.length > 0 &&
 
-      <Carousel autoplay className="carouselTop">
+      <Carousel style={{width:"25em" , height: "30em", alignItems: "center", justifyContent: "center"}}autoplay className="carouselTop">
 
         {
           moviesCarouselTop.slice(0,4).map(
             movie => {
               return(
                 <div key={movie.id}>
-                  <h3 style={{width:"30em" , height: "60em", alignItems: "center", justifyContent: "center"}}><img className='posterDesign' style={{width:"20em" , height: "30em", contentStyle}} src={movie.Poster} alt={movie.id}/></h3>
+                  <h3 style={{width:"25em" , height: "30em", alignItems: "center", justifyContent: "center"}}><img className='posterDesign' style={{width:"25em" , height: "30em", contentStyle}} src={movie.Poster} alt={movie.id}/></h3>
                 </div>
               )
             }
