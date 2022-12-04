@@ -7,7 +7,23 @@ This project was done as a group project between: [@ManelQM](https://github.com/
 
 ## Demo the project 🚀
 
-The front-end has been uploaded to AWS amplify
+The front-end has been uploaded to AWS amplify at the following domain: [https://main.d3l0d73c9ge9i.amplifyapp.com/](https://main.d3l0d73c9ge9i.amplifyapp.com/)
+
+## What to demo 🧪
+
+- You can Register.
+- You can log in with your registered credentials.
+- You can 'Make a rental', using our debounced search and by clicking 'rent' on the movies you'd like to order.
+- You can then go to the 'My rentals' section and see the articles you've rented.
+- You can click on the logout button in the header and you will be logged out.
+
+# Tools we used 🔧
+
+- React
+- Vite
+- AWS amplify
+- [Ant Design](https://ant.design/)
+- [Framer Motion](https://www.framer.com/motion/)
 
 # Development set-up
 
