@@ -6,25 +6,26 @@ import { motion } from "framer-motion";
 const AdminArea = () => {
   return (
     <div className="adminOptions">
-      {/* <Link to="/admin-area/search-user">
-        <motion.h1
+      <Link to="/admin-area/search-user">
+        <motion.button
+
           animate={{ y: 100 }}
           transition={{ duration: 2 }}
           whileHover={{ scale: 1.3 }}
           className="searchEmail"
         >
-          USERS
-        </motion.h1>
-      </Link> */}
+          Users
+        </motion.button>
+      </Link>
       <Link to="/admin-area/search-rental">
-        <motion.h1
+        <motion.button
           animate={{ y: 100 }}
           transition={{ duration: 2 }}
           whileHover={{ scale: 1.3 }}
           className="searchRentals"
         >
           Get All Rentals
-        </motion.h1>
+        </motion.button>
       </Link>
     </div>
   );
