@@ -60,7 +60,7 @@ const Home = () => {
       <Carousel style={{width:"25em" , height: "30em", alignItems: "center", justifyContent: "center"}}autoplay className="carouselTop">
 
         {
-          moviesCarouselTop.slice(0,4).map(
+          moviesCarouselTop.slice(0,20).map(
             movie => {
               return(
                 <div key={movie.id}>

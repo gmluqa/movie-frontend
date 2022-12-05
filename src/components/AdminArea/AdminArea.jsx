@@ -17,7 +17,7 @@ const AdminArea = () => {
           Users
         </motion.button>
       </Link>
-      <Link to="/admin-area/search-rental">
+      <Link to="/admin-area/search-rental"  >
         <motion.button
           animate={{ y: 100 }}
           transition={{ duration: 2 }}
