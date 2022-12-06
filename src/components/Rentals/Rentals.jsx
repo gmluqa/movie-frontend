@@ -19,7 +19,7 @@ const articlesArrayMapper = async () => {
 
     arr.push(articleData.data);
   }
-  console.log(arr);
+  ;
   return arr;
 };
 // Just use a hook and connect it to the thing
@@ -29,21 +29,20 @@ const Rentals = () => {
 
   useEffect(() => {
     setArticles([]);
-    console.log("im mounted");
+   
     // On mount, state hook 'articles' array is filled with all movies
     const promise = articlesArrayMapper();
 
     promise.then(data => {
       setArticles(data);
-      console.log(data);
+      
     });
-    console.log(articles);
+   
   }, []);
 
   return (
     <div className="cardsWrapper">
       {articles.map((item, index) => {
-        console.log("mapping");
         return (
           <Card
             key={index}

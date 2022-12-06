@@ -12,7 +12,7 @@ const UserArea = () => {
         <Card
           hoverable
           onClick={() =>
-            console.log("this button renders /user-area/rentals view")
+            ("this button renders /user-area/rentals view") // 
           }
           style={{ width: 240 }}
           cover={
@@ -31,7 +31,7 @@ const UserArea = () => {
         <Card
           
           hoverable
-          onClick={() => console.log("this button renders /articles view")}
+          onClick={() => ("this button renders /articles view")}
           style={{ width: 240 }}
           cover={
             <img

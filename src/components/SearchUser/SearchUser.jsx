@@ -16,7 +16,7 @@ const findUser = () => {
   };
 
   useEffect(() => {
-    console.log(results?.data);
+    
     if (criteria !== "") {
       const bring = setTimeout(() => {
         searchUser(criteria)
@@ -24,7 +24,7 @@ const findUser = () => {
             setResults(res);
             return res;
           })
-          .catch(error => console.log(error));
+          .catch(error => (error));
       }, 350);
 
       return () => clearTimeout(bring);

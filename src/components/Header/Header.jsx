@@ -17,10 +17,6 @@ const Header = () => {
   store.subscribe(async () => {
     userLoggedIn = store.getState().header.userLogged;
     setLogIn(userLoggedIn);
-    // if (!localStorage.getItem("JWT")) {
-    //   console.log(localStorage.getItem("JWT"));
-    //   setLogIn(false);
-    // }
   });
 
   useEffect(() => {

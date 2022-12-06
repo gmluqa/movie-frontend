@@ -21,7 +21,7 @@ const Articles = () => {
   };
 
   useEffect(() => {
-    console.log(results?.data);
+
     if (criteria !== "") {
       const bring = setTimeout(() => {
         searchArticles(criteria)
@@ -29,7 +29,7 @@ const Articles = () => {
             setResults(res);
             return res;
           })
-          .catch(error => console.log(error));
+          .catch(error =>(error));
       }, 350);
 
       return () => clearTimeout(bring);

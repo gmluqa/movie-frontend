@@ -7,13 +7,9 @@ const loginSlice = createSlice({
     initialState,
     reducers: {
         login(state, action) {
-            console.log("store updating...")
-            console.log(action.payload)
             state = action.payload
         },
         logout(state, action) {
-            console.log("store updating...")
-            console.log(action.payload)
             state = action.payload
             localStorage.removeItem("JWT")
             localStorage.removeItem("UserInfo")

@@ -38,14 +38,11 @@ const tailFormItemLayout = {
 };
 
 const Register = () => {
-  // useEffect(() => {
-  //   console.log("Soy register", registerFromRdx);
-  // });
+ 
 
   const [form] = Form.useForm();
   const onFinish = async values => {
     let res = await registerUser(values);
-    console.log(res);
     setRegisterMessage(res);
     // register service called(values)
   };

@@ -7,7 +7,7 @@ let returnedArticle = {}
 
 export let getAllUserOrders = async () => {
     let JWT = localStorage.getItem("JWT").slice(1, -1)
-    console.log(JWT)
+    
     try {
         await axios.get(`${API_URL}/order/listAll`, {
             headers: {

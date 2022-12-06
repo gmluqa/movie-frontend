@@ -27,29 +27,12 @@ const Home = () => {
             setMoviesCarouselTop(res)
           }
         )
-        .catch(error => console.log(error));
+        .catch(error => (error));
     } else {
-      console.log("hello G", moviesCarouselTop)
+      
     }
 
   },[moviesCarouselTop])
-
-  useEffect(()=>{
-
-    if(moviesCarouselLast.length === 0){
-
-      bringMoviesCarouselLast()
-        .then(
-          res => {
-           
-            setMoviesCarouselLast(res)
-          }
-        )
-        .catch(error => console.log(error));
-    } else {
-    }
-
-  },[moviesCarouselLast])
 
   return (
     <div className="homeContainer">
@@ -74,26 +57,6 @@ const Home = () => {
       </Carousel>
 
     }
-
-    {/* {
-      moviesCarouselLast.length > 0 &&
-
-      <Carousel autoplay className="carouselTop">
-
-        {
-          moviesCarouselLast.slice(0,3).map(
-            movie => {
-              return(
-                <div key={movie.id}>
-                  <h3 style={contentStyle}><img className='posterDesign' src={movie.Poster} alt={movie.id}/></h3>
-                </div>
-              )
-            }
-          )
-        }
-        
-      </Carousel>
-    }  */}
    
     </div>
   );

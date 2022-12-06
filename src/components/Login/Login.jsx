@@ -12,11 +12,7 @@ const Login = () => {
   
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  // const userlogin = useSelector(userData);
-
-  // const submitForm = () => {
-
-  // }
+  
 
   const onFinish = async values => {
     let res = await loginUser(values);
@@ -28,9 +24,9 @@ const Login = () => {
       });
     } else {
       let decoded = decodeToken(res);
-      console.log(decoded);
+      
       let userType = decoded.UserType;
-      console.log(userType);
+      
       dispatch(login(res));
 
       // here we set the raw JWT to localstorage
@@ -99,17 +95,7 @@ const Login = () => {
           <Input.Password />
         </Form.Item>
 
-        {/* We may implement this after */}
-        {/* <Form.Item
-          name="remember"
-          valuePropName="checked"
-          wrapperCol={{
-            offset: 8,
-            span: 16,
-          }}
-        >
-          <Checkbox>Remember me</Checkbox>
-        </Form.Item> */}
+       
 
         <Form.Item
           wrapperCol={{
