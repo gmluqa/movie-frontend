@@ -119,11 +119,17 @@ const Register = () => {
           rules={[
             {
               type: "email",
-              message: "The input is not valid E-mail!",
+              message: (
+                <div style={{ color: "white" }}>
+                  The input is not valid E-mail!
+                </div>
+              ),
             },
             {
               required: true,
-              message: "Please input your E-mail!",
+              message: (
+                <div style={{ color: "white" }}>Please input your E-mail!</div>
+              ),
             },
           ]}
         >
@@ -136,7 +142,11 @@ const Register = () => {
           rules={[
             {
               required: true,
-              message: "Please input your password!",
+              message: (
+                <div style={{ color: "white" }}>
+                  Please input your password!
+                </div>
+              ),
             },
           ]}
           hasFeedback
@@ -152,7 +162,11 @@ const Register = () => {
           rules={[
             {
               required: true,
-              message: "Please confirm your password!",
+              message: (
+                <div style={{ color: "white" }}>
+                  Please confirm your password!
+                </div>
+              ),
             },
             ({ getFieldValue }) => ({
               validator(_, value) {
@@ -160,7 +174,9 @@ const Register = () => {
                   return Promise.resolve();
                 }
                 return Promise.reject(
-                  new Error("The two passwords that you entered do not match!")
+                  <div style={{ color: "white" }}>
+                    The two passwords that you entered do not match!
+                  </div>
                 );
               },
             }),
@@ -176,7 +192,11 @@ const Register = () => {
           rules={[
             {
               required: true,
-              message: "Please input your nickname!",
+              message: (
+                <div style={{ color: "white" }}>
+                  Please input your nickname!
+                </div>
+              ),
               whitespace: true,
             },
           ]}
@@ -192,7 +212,11 @@ const Register = () => {
               validator: (_, value) =>
                 value
                   ? Promise.resolve()
-                  : Promise.reject(new Error("Should accept agreement")),
+                  : Promise.reject(
+                      <div style={{ color: "white" }}>
+                        You must accept the agreement.
+                      </div>
+                    ),
             },
           ]}
           {...tailFormItemLayout}
