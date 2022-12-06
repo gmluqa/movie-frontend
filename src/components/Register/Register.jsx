@@ -101,7 +101,7 @@ const Register = () => {
         form={form}
         name="register"
         style={{
-          width: "20em",
+          width: "40em",
           height: "20em",
           marginTop: "5em",
           marginRight: "5em",
@@ -146,7 +146,7 @@ const Register = () => {
 
         <Form.Item
           name="confirm"
-          label="Confirm Password"
+          label="Confirm password: "
           dependencies={["password"]}
           hasFeedback
           rules={[
