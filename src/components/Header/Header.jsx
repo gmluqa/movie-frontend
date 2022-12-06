@@ -83,7 +83,9 @@ const Header = () => {
       {loggedIn &&
       JSON.parse(localStorage.getItem("UserInfo")).UserType == "Admin" ? (
         <Link to="../admin-area">
-          <Button type="primary">Admin Area</Button>
+          <Button type="primary" className="adminButton">
+            Admin Area
+          </Button>
         </Link>
       ) : (
         void 0
