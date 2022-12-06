@@ -1,7 +1,7 @@
 import "./Register.css";
 import React, { useState } from "react";
 
-import { Button, Checkbox, Form, Input, Select } from "antd";
+import { Button, Checkbox, Col, Form, Input, Row, Select } from "antd";
 const { Option } = Select;
 
 import { registerUser } from "../../services/register.service";
@@ -95,17 +95,28 @@ const Register = () => {
   }));
 
   return (
+    
     <div className="registerDesign">
       <Form
         {...formItemLayout}
         form={form}
         name="register"
         style={{
-          width: "40em",
-          height: "20em",
+          // width: "70em",
+          // height: "20em",
           marginTop: "5em",
-          marginRight: "5em",
+          // marginRight: "15em",
+          alignItems:"center",
+          justifyContent:"center",
+          flexDirection: "column"
         }}
+        labelCol={{
+          span: 8,
+        }}
+        // wrapperCol={{
+        //   span: 16,
+        // }}
+      
         onFinish={onFinish}
         initialValues={{
           residence: ["zhejiang", "hangzhou", "xihu"],
@@ -233,7 +244,8 @@ const Register = () => {
         </Form.Item>
         <div>{registerMessage}</div>
       </Form>
-    </div>
+      </div>
+     
   );
 };
 export default Register;

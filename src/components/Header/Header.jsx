@@ -3,6 +3,7 @@ import "./Header.css";
 import { Link, useNavigate } from "react-router-dom";
 import store from "../../app/store";
 import { Button, Space, ConfigProvider } from "antd";
+import { Col, Row } from 'antd';
 import { useDispatch } from "react-redux";
 import { logout } from "../Login/loginSlice";
 
@@ -31,15 +32,19 @@ const Header = () => {
       
       style={{ display: "flex",
       alignItems:"center",
-      justifyContent: "flex-start",
+      justifyContent: "left",
       height: "20vh",
       width: "100vw",
       flexFlow:"row",
-        backgroundImage: `url("https://static.hidive.com/news/2021/01/hidive-classic-anime-ninja-scroll-movie-1200x450.jpg")`,
+      backgroundImage: `url("https://static.hidive.com/news/2021/01/hidive-classic-anime-ninja-scroll-movie-1200x450.jpg")`,
+
       }}
     >
       <Link to="/" className="mangaDesign"
-          style={{marginRight:"-5em",
+          style={{
+          marginRight:"-10em",
+          height:"10em",
+          width:"20em",
           
           }}
       >
