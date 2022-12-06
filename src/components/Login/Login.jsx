@@ -9,10 +9,9 @@ import { loginUser } from "../../services/login.service";
 
 const Login = () => {
   const [messageText, setMessageText] = useState({ message: "" });
-  
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  
 
   const onFinish = async values => {
     let res = await loginUser(values);
@@ -24,9 +23,9 @@ const Login = () => {
       });
     } else {
       let decoded = decodeToken(res);
-      
+
       let userType = decoded.UserType;
-      
+
       dispatch(login(res));
 
       // here we set the raw JWT to localstorage
@@ -51,7 +50,12 @@ const Login = () => {
     <div className="loginDesign">
       <Form
         name="basic"
-        style={{width:"20em" , height: "20em",  marginTop:"5em", marginRight:"5em" }}
+        style={{
+          width: "20em",
+          height: "20em",
+          marginTop: "5em",
+          marginRight: "5em",
+        }}
         labelCol={{
           span: 8,
         }}
@@ -72,11 +76,17 @@ const Login = () => {
             {
               type: "email",
               className: "email",
-              message: "The input is not valid E-mail!",
+              message: (
+                <div style={{ color: "white" }}>
+                  The input is not valid E-mail!
+                </div>
+              ),
             },
             {
               required: true,
-              message: "Please input your E-mail!",
+              message: (
+                <div style={{ color: "white" }}>Please input your E-mail!</div>
+              ),
             },
           ]}
         >
@@ -88,14 +98,16 @@ const Login = () => {
           rules={[
             {
               required: true,
-              message: "Please input your password!",
+              message: (
+                <div style={{ color: "white" }}>
+                  Please input your password!
+                </div>
+              ),
             },
           ]}
         >
           <Input.Password />
         </Form.Item>
-
-       
 
         <Form.Item
           wrapperCol={{
