@@ -108,14 +108,15 @@ const Register = () => {
           // marginRight: "15em",
           alignItems:"center",
           justifyContent:"center",
-          flexDirection: "column"
+          flexDirection: "column",
+        
         }}
         labelCol={{
           span: 8,
         }}
-        // wrapperCol={{
-        //   span: 16,
-        // }}
+        wrapperCol={{
+          span: 16,
+        }}
       
         onFinish={onFinish}
         initialValues={{
