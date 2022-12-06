@@ -28,12 +28,21 @@ const Header = () => {
   return (
     <div
       className="classHeader"
-      Link
-      style={{
+      
+      style={{ display: "flex",
+      alignItems:"center",
+      justifyContent: "flex-start",
+      height: "20vh",
+      width: "100vw",
+      flexFlow:"row",
         backgroundImage: `url("https://static.hidive.com/news/2021/01/hidive-classic-anime-ninja-scroll-movie-1200x450.jpg")`,
       }}
     >
-      <Link to="/" className="mangaDesign">
+      <Link to="/" className="mangaDesign"
+          style={{marginRight:"-5em",
+          
+          }}
+      >
         <img
           className="headerLogo"
           src="https://upload.wikimedia.org/wikipedia/en/9/91/MangoEntertainmentLogo.png"
@@ -42,7 +51,8 @@ const Header = () => {
       </Link>
 
       {loggedIn === false ? (
-        <div>
+        
+        <div >
           <Space>
             <Link to="./login">
               <Button className="loginButton button" type="primary">

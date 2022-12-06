@@ -4,10 +4,6 @@
   background-color: black;
   background-position: 80%;
   color: white;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: row;
 }
 
 .mangaDesign {
@@ -17,41 +13,10 @@
 
 .headerLogo {
   height: 90%;
-  margin-left: 2.5%;
+  /* margin-left: 2.5%; */
   display: flex;
 }
 
 .adminButton {
   margin-left: 6.5%;
 }
-/* .headerLogo2 {
-  height: 9.3em;
-  margin-left: 64em;
-  display: flex;
-} */
-
-/* .loginButton {
-  background-color: red;
-  margin-left: 50%;
-  width: 5vw;
-  display: flex;
-}
-
-.registerButton {
-  color: black;
-  background-color: whitesmoke;
-  margin-left: 50%;
-  width: 5vw;
-  display: flex;
- 
-}
-.subscribeButton {
-  background-color: red;
-  margin-left: 50%;
-  display: flex;
-}
-#button{
-  justify-content: center;
-  align-items: center;
-  display: flex;
-} */
