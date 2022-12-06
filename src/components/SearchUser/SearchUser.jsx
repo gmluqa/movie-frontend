@@ -43,7 +43,6 @@ const findUser = () => {
           enterButton="Search"
           size="large"
           onChange={onChange}
-          loading
         ></Search>
       </div>
       <div className="cardsWrapper">
