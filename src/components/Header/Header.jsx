@@ -28,19 +28,19 @@ const Header = () => {
   return (
     <div
       className="classHeader"
-      Link 
+      Link
       style={{
         backgroundImage: `url("https://static.hidive.com/news/2021/01/hidive-classic-anime-ninja-scroll-movie-1200x450.jpg")`,
       }}
     >
-     <Link to= "/" className="mangaDesign">
-      <img
-        className="headerLogo"
-        src="https://upload.wikimedia.org/wikipedia/en/9/91/MangoEntertainmentLogo.png" 
-        alt=""
-      />
+      <Link to="/" className="mangaDesign">
+        <img
+          className="headerLogo"
+          src="https://upload.wikimedia.org/wikipedia/en/9/91/MangoEntertainmentLogo.png"
+          alt=""
+        />
       </Link>
-        
+
       {loggedIn === false ? (
         <div>
           <Space>
@@ -75,6 +75,16 @@ const Header = () => {
             </Button>
           </Space>
         </div>
+      )}
+      {loggedIn &&
+      JSON.parse(localStorage.getItem("UserInfo")).UserType == "Admin" ? (
+        <Link to="../admin-area">
+          <Button type="primary" className="adminButton">
+            Admin Area
+          </Button>
+        </Link>
+      ) : (
+        void 0
       )}
     </div>
   );
