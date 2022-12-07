@@ -28,8 +28,7 @@ const Header = () => {
 
   return (
     <div
-      className="classHeader"
-      
+      className="classHeader" 
       style={{ display: "flex",
       alignItems:"center",
       justifyContent: "left",
@@ -37,7 +36,6 @@ const Header = () => {
       width: "100vw",
       flexFlow:"row",
       backgroundImage: `url("https://static.hidive.com/news/2021/01/hidive-classic-anime-ninja-scroll-movie-1200x450.jpg")`,
-
       }}
     >
       <Link to="/" className="mangaDesign"
