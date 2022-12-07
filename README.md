@@ -13,9 +13,20 @@ The front-end has been uploaded to AWS amplify at the following domain: [https:/
 
 - You can Register.
 - You can log in with your registered credentials.
+
+  ![Register and Login](./README/img/register-login.png)
+
 - You can 'Make a rental', using our debounced search and by clicking 'rent' on the movies you'd like to order.
+
+  ![Make a rental](./README/img/debounced-search.png)
+
 - You can then go to the 'My rentals' section and see the articles you've rented.
+
+  ![My rentals](./README/img/my-rentals.png)
+
 - You can click on the logout button in the header and you will be logged out.
+
+  ![Logout](./README/img/logout.png)
 
 # Tools we used 🔧
 
